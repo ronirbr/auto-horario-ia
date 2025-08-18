@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="autoHorarioApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoHorario IA - Gerador Inteligente de Horários Escolares</title>
+    <meta name="description" content="Sistema inteligente de geração automática de horários para escolas, utilizando algoritmos avançados de IA">
+    <meta name="keywords" content="horários escolares, inteligência artificial, automação escolar, gestão escolar">
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="styles/output.css">
+
+    <!-- AngularJS -->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navbar --> 
+    <nav ng-include="'app/components/navbar/navbar.html'"></nav>
+
+    <!-- Conteúdo principal -->
+    <main class="container mx-auto p-4">
+        <div ng-view></div>
+    </main>
+
+    <!-- Scripts da aplicação -->
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+</body>
+</html>

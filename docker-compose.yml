@@ -1,0 +1,56 @@
+version: '3'
+services:
+  backend:
+    build: ./backend
+    container_name: autohorario-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/autohorario
+      - JWT_SECRET=your-secure-jwt-secret-key-here
+    depends_on:
+      - db
+    restart: unless-stopped
+    networks:
+        - autohorario_network
+
+  frontend:
+    build: ./frontend
+    container_name: autohorario-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app/src
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - API_URL=http://backend:8080/api
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+        - autohorario_network
+
+  db:
+    image: postgres:13
+    container_name: autohorario-db
+    environment:
+      - POSTGRES_DB=autohorario
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password 
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+        - autohorario_network
+
+volumes:
+  postgres_data:
+
+networks:
+  autohorario_network:
+    name: autohorario_network
+    driver: bridge 
+

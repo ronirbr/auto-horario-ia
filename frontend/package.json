@@ -1,0 +1,26 @@
+{
+  "name": "auto-horario-ia-frontend",
+  "version": "1.0.0",
+  "description": "Frontend para sistema de geração automática de horários escolares",
+  "dependencies": {
+    "angular": "^1.8.2",
+    "angular-route": "^1.8.2",
+    "angular-animate": "^1.8.2",
+    "angular-aria": "^1.8.2",
+    "chart.js": "^3.9.1",
+    "angular-chart.js": "^1.1.1"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "tailwindcss": "^3.3.0",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "autoprefixer": "^10.4.14"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css",
+    "watch:css": "tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch",
+    "dev": "npm run watch:css & lite-server",
+    "start": "lite-server"
+  }
+}
