@@ -9,14 +9,14 @@ import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 @Entity
-@Table(name = "horarios")]
+@Table(name = "horarios")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Horario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.ENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
@@ -32,7 +32,7 @@ public class Horario {
     private Sala sala;
 
     @Column(nullable = false)
-    private DayOfWeek diaSemana.
+    private DayOfWeek diaSemana;
 
     @Column(name = "hora_inicio", nullable = false)
     private LocalTime horaInicio;
